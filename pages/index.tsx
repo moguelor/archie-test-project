@@ -1,37 +1,16 @@
-
-import * as home from './home';
-import { gql } from "@apollo/client";
-import { ApolloClient, InMemoryCache } from "@apollo/client";
-
-const client = new ApolloClient({
-    uri: "https://api.spacex.land/graphql/",
-    cache: new InMemoryCache(),
-});
+import * as home from "./home";
+import { client } from './apolloConfig';
+import { LAUNCHES_PAST_SEARCH_QUERY } from "./home/querys";
 
 export async function getStaticProps() {
   const { data } = await client.query({
-    query: gql`
-    {
-      launchesPast(limit: 10) {
-        id
-        mission_name
-        details
-        rocket {
-          rocket_name
-        }
-        links {
-          video_link
-          flickr_images
-        }
-      }
-    }
-    `,
+    query: LAUNCHES_PAST_SEARCH_QUERY,
   });
 
   return {
     props: {
       launchesPast: data.launchesPast,
     },
- };
+  };
 }
 export default home.Container;
