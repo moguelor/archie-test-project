@@ -1,5 +1,5 @@
 body {
-  background-image: url('https://www.innovationnewsnetwork.com/wp-content/uploads/2021/03/Universe-is-expanding-1024x576.jpg') !important;
+  background: #FFF;
 }
 
 html,
@@ -9,8 +9,6 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-
-
 
 a {
   color: inherit;

@@ -10,7 +10,7 @@ type CardProps = {
 
 const Card = ({ missionName, rocketName, details, image, link }: CardProps) => {
   return (
-    <Box maxW="sm" borderRadius="lg" overflow="hidden" bgColor="#FFF">
+    <Box maxW="sm" borderRadius="lg" overflow="hidden" bgColor="#FFF" borderWidth="1px" boxShadow="0px 2px 5px #edeef0">
       {image ? (
         <Image src={image} objectFit="cover" height="180px" width="100%" />
       ) : (
