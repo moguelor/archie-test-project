@@ -1,8 +1,7 @@
-import { Card } from "./components";
+import { LaunchedList } from "./components";
 import {
   Container,
   Box,
-  SimpleGrid,
   Input,
   Image,
   Center,
@@ -43,35 +42,15 @@ const Home = ({ launchesPast }: HomeProps) => {
         />
       </Box>
 
-      {loading ? (
+      {/* {loading ? (
         <Center h="100vh" width="100%">
           <Image src="https://i.gifer.com/PSc.gif" />
         </Center>
       ) : error ? (
         <Box color="red">{error}</Box>
-      ) : (
-        <SimpleGrid columns={[1, 3, 4]} spacing="15px">
-          {" "}
-          {filteredData?.map(
-            ({
-              id,
-              mission_name,
-              rocket: { rocket_name },
-              details,
-              links: { article_link, flickr_images },
-            }) => (
-              <Card
-                key={id}
-                missionName={mission_name}
-                rocketName={rocket_name}
-                details={details}
-                image={flickr_images[0]}
-                link={article_link}
-              />
-            )
-          )}
-        </SimpleGrid>
-      )}
+      ) : ( */}
+          <LaunchedList data={ loading ? [] : filteredData} />
+      {/* )} */}
     </Container>
   );
 };
