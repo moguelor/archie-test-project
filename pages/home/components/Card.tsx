@@ -19,15 +19,16 @@ const Card = ({
   animatedStyles,
 }: CardProps) => {
   return (
+    <Box
+    maxW="sm"
+    borderRadius="lg"
+    overflow="hidden"
+    bgColor="#FFF"
+    borderWidth="1px"
+    boxShadow="0px 2px 5px #edeef0"
+  >
     <animated.div key={id} style={animatedStyles}>
-      <Box
-        maxW="sm"
-        borderRadius="lg"
-        overflow="hidden"
-        bgColor="#FFF"
-        borderWidth="1px"
-        boxShadow="0px 2px 5px #edeef0"
-      >
+
         {image ? (
           <Image src={image} objectFit="cover" height="180px" width="100%" />
         ) : (
@@ -50,8 +51,9 @@ const Card = ({
           </Box>
           <Box fontSize="11px">{details ? details : "No details..."}</Box>
         </Box>
-      </Box>
     </animated.div>
+    </Box>
+
   );
 };
 

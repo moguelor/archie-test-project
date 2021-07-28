@@ -11,7 +11,7 @@ const LaunchedList = ({ data }: LaunchedListProps) => {
   const transitions = useTransition(data, {
     from: { opacity: 0, transform: "translateY(-20px)" },
     enter: { opacity: 1, transform: "translateY(0px)" },
-    leave: { opacity: 0, transform: "translateY(20px)" },
+    leave: { display: "none" },
     keys: (item) => item.id,
   });
 

@@ -42,15 +42,15 @@ const Home = ({ launchesPast }: HomeProps) => {
         />
       </Box>
 
-      {/* {loading ? (
+      {loading ? (
         <Center h="100vh" width="100%">
           <Image src="https://i.gifer.com/PSc.gif" />
         </Center>
       ) : error ? (
         <Box color="red">{error}</Box>
-      ) : ( */}
+      ) : (
           <LaunchedList data={ loading ? [] : filteredData} />
-      {/* )} */}
+      )} 
     </Container>
   );
 };
