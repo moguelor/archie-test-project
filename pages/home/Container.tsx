@@ -1,11 +1,6 @@
+import { useState } from "react";
 import { LaunchedList } from "./components";
-import {
-  Container,
-  Box,
-  Input,
-  Image,
-  Center,
-} from "@chakra-ui/react";
+import { Container, Box, Input, Image, Center, Button } from "@chakra-ui/react";
 import { useLazyQuery } from "@apollo/client";
 import { LAUNCHES_PAST_SEARCH_QUERY } from "./querys";
 
@@ -16,11 +11,19 @@ type HomeProps = {
 
 // TODO: Manage the differents states loading, error.
 const Home = ({ launchesPast }: HomeProps) => {
+  const [text, setText] = useState("");
   const [runQuery, { data, loading, error }] = useLazyQuery(
     LAUNCHES_PAST_SEARCH_QUERY
   );
 
   const filteredData = data ? data.launchesPast : launchesPast;
+  //TODO: Put the correct types.
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    runQuery({
+      variables: { filter: text },
+    });
+  };
 
   return (
     <Container
@@ -30,16 +33,14 @@ const Home = ({ launchesPast }: HomeProps) => {
       centerContent
     >
       <Box width="100%">
-        <Input
-          marginBottom="25px"
-          placeholder="Write here to find a mission..."
-          bgColor="#FFF"
-          onChange={(e) =>
-            runQuery({
-              variables: { filter: e.target.value },
-            })
-          }
-        />
+        <form onSubmit={handleSubmit}>
+          <Input
+            marginBottom="25px"
+            placeholder="Write here to find a mission and then press enter..."
+            bgColor="#FFF"
+            onChange={(e) => setText(e.target.value)}
+          />
+        </form>
       </Box>
 
       {loading ? (
@@ -49,8 +50,8 @@ const Home = ({ launchesPast }: HomeProps) => {
       ) : error ? (
         <Box color="red">{error}</Box>
       ) : (
-          <LaunchedList data={ loading ? [] : filteredData} />
-      )} 
+        <LaunchedList data={loading ? [] : filteredData} />
+      )}
     </Container>
   );
 };

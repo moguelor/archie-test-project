@@ -1,6 +1,6 @@
 import { animated, useTransition } from "react-spring";
 import Card from "./Card";
-import { SimpleGrid } from "@chakra-ui/react";
+import { SimpleGrid, Center} from "@chakra-ui/react";
 
 //TODO: Put correct types.
 type LaunchedListProps = {
@@ -8,6 +8,11 @@ type LaunchedListProps = {
 };
 
 const LaunchedList = ({ data }: LaunchedListProps) => {
+
+  if(data.length === 0){
+    return <Center fontSize="15px" color="#ddd" fontStyle="italic"> Oops, nothing to see! try searching another mission. </Center>
+  }
+
   const transitions = useTransition(data, {
     from: { opacity: 0, transform: "translateY(-20px)" },
     enter: { opacity: 1, transform: "translateY(0px)" },
