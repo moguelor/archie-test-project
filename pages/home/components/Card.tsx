@@ -12,6 +12,7 @@ type CardProps = {
   details: string;
   image: string;
   animatedStyles?: any;
+  link: string;
 };
 
 const Card = ({
@@ -21,15 +22,24 @@ const Card = ({
   details,
   image,
   animatedStyles,
+  link,
 }: CardProps) => {
   return (
     <Box
+      href={link}
+      target="_blank"
+      as="a"
       maxW="sm"
       borderRadius="lg"
       overflow="hidden"
       bgColor="#FFF"
       borderWidth="1px"
-      boxShadow="0px 2px 5px #edeef0"
+      transition="transform .2s"
+      _hover={{
+        transform: "scale(1.03)",
+        cursor: "pointer",
+        boxShadow: "0px 2px 5px #edeef0",
+      }}
     >
       <animated.div key={id} style={animatedStyles}>
         {image ? (

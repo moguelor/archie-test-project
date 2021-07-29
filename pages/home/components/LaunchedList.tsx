@@ -25,7 +25,7 @@ const LaunchedList = ({ data }: LaunchedListProps) => {
             mission_name,
             rocket: { rocket_name },
             details,
-            links: { flickr_images },
+            links: { flickr_images, video_link },
           },
         }) => (
           <Card
@@ -35,6 +35,7 @@ const LaunchedList = ({ data }: LaunchedListProps) => {
             details={details}
             image={flickr_images[0]}
             animatedStyles={styles}
+            link={video_link}
           />
         )}
       </Transition>
