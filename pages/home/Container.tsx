@@ -1,15 +1,14 @@
 import { useState } from "react";
-import { LaunchedList } from "./components";
-import { Container, Box, Input, Image, Center, Button } from "@chakra-ui/react";
+import { LaunchedList, SearchInput, Loader, ErrorMessage } from "./components";
+import { Container } from "@chakra-ui/react";
 import { useLazyQuery } from "@apollo/client";
 import { LAUNCHES_PAST_SEARCH_QUERY } from "./querys";
+import { LaunchedItem } from "./types";
 
-// TODO: Add correctly proptypes.
 type HomeProps = {
-  launchesPast?: [];
+  launchesPast?: LaunchedItem[];
 };
 
-// TODO: Manage the differents states loading, error.
 const Home = ({ launchesPast }: HomeProps) => {
   const [text, setText] = useState("");
   const [runQuery, { data, loading, error }] = useLazyQuery(
@@ -17,8 +16,8 @@ const Home = ({ launchesPast }: HomeProps) => {
   );
 
   const filteredData = data ? data.launchesPast : launchesPast;
-  //TODO: Put the correct types.
-  const handleSubmit = (e: any) => {
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     runQuery({
       variables: { filter: text },
@@ -32,25 +31,17 @@ const Home = ({ launchesPast }: HomeProps) => {
       maxW="110ch"
       centerContent
     >
-      <Box width="100%">
-        <form onSubmit={handleSubmit}>
-          <Input
-            marginBottom="25px"
-            placeholder="Write here to find a mission and then press enter..."
-            bgColor="#FFF"
-            onChange={(e) => setText(e.target.value)}
-          />
-        </form>
-      </Box>
+      <SearchInput
+        handleSubmit={handleSubmit}
+        handleChange={(text: string) => setText(text)}
+      />
 
       {loading ? (
-        <Center h="100vh" width="100%">
-          <Image src="https://i.gifer.com/PSc.gif" />
-        </Center>
+        <Loader />
       ) : error ? (
-        <Box color="red">{error}</Box>
+        <ErrorMessage text={error && error.message} />
       ) : (
-        <LaunchedList data={loading ? [] : filteredData} />
+        <LaunchedList data={filteredData} />
       )}
     </Container>
   );

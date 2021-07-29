@@ -1,5 +1,5 @@
 import * as home from "./home";
-import { client } from './apolloConfig';
+import { client } from "./apolloConfig";
 import { LAUNCHES_PAST_SEARCH_QUERY } from "./home/querys";
 
 export async function getStaticProps() {

@@ -1,38 +1,33 @@
-import { animated, useTransition } from "react-spring";
 import Card from "./Card";
-import { SimpleGrid, Center} from "@chakra-ui/react";
+import { SimpleGrid } from "@chakra-ui/react";
+import { LaunchedItem } from "../types";
+import EmptyMessage from "./EmptyMessage";
+import Transition from "./Transition";
 
-//TODO: Put correct types.
 type LaunchedListProps = {
-  missions: [];
+  data: LaunchedItem[];
 };
 
 const LaunchedList = ({ data }: LaunchedListProps) => {
-
-  if(data.length === 0){
-    return <Center fontSize="15px" color="#ddd" fontStyle="italic"> Oops, nothing to see! try searching another mission. </Center>
+  if (data.length === 0) {
+    return (
+      <EmptyMessage text="Oops, nothing to see! try searching another mission." />
+    );
   }
-
-  const transitions = useTransition(data, {
-    from: { opacity: 0, transform: "translateY(-20px)" },
-    enter: { opacity: 1, transform: "translateY(0px)" },
-    leave: { display: "none" },
-    keys: (item) => item.id,
-  });
 
   return (
     <SimpleGrid columns={[1, 3, 4]} spacing="15px">
-      {transitions(
-        (
+      <Transition data={data}>
+        {({
           styles,
-          {
+          item: {
             id,
             mission_name,
             rocket: { rocket_name },
             details,
-            links: { article_link, flickr_images },
-          }
-        ) => (
+            links: { flickr_images },
+          },
+        }) => (
           <Card
             id={id}
             missionName={mission_name}
@@ -41,8 +36,8 @@ const LaunchedList = ({ data }: LaunchedListProps) => {
             image={flickr_images[0]}
             animatedStyles={styles}
           />
-        )
-      )}
+        )}
+      </Transition>
     </SimpleGrid>
   );
 };
