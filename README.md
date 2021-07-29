@@ -52,7 +52,7 @@ Here are the main libraries used in the project.
 
 #### Deploy
 
-- [vercel](https://vercel.com/) - Publish files to a gh-pages branch on GitHub.
+- [vercel](https://vercel.com/) - vercel combines the best developer experience with an obsessive focus on end-user performance.
 
 ### Required features.
 
