@@ -1,5 +1,7 @@
 ### Challenge Project.
 
+Live -> https://archie-test-project.vercel.app/
+
 Challenge project created to show the knowledge acquired as UI Developer in frontend technologies like `react.js`, `graphql`, `apollo`, `typescript`.
 
 ### Started Kit
@@ -50,7 +52,7 @@ Here are the main libraries used in the project.
 
 #### Deploy
 
-- [gh-pages](https://github.com/tschaub/gh-pages) - Publish files to a gh-pages branch on GitHub.
+- [vercel](https://vercel.com/) - Publish files to a gh-pages branch on GitHub.
 
 ### Required features.
 
