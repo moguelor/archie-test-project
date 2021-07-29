@@ -11,7 +11,7 @@ const SearchInput = ({ handleSubmit, handleChange }: SearchInput) => {
       <form onSubmit={handleSubmit}>
         <Input
           marginBottom="25px"
-          placeholder="Write and enter to search."
+          placeholder="Write and enter to search a mission."
           bgColor="#FFF"
           onChange={(e) => handleChange(e.target.value)}
         />

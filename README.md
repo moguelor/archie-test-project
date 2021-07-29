@@ -1,34 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### Challenge Project.
 
-## Getting Started
+Challenge project created to show the knowledge acquired as UI Developer in frontend technologies like `react.js`, `graphql`, `apollo`, `typescript`.
 
-First, run the development server:
+### Started Kit
 
-```bash
-npm run dev
-# or
+The initial structure is created by [create-next-app](https://nextjs.org/docs/getting-started), the setup for a modern web app with next.js.
+
+### Installation
+
+Application requires [Node.js](https://nodejs.org/es/) to run.
+
+Execute the follow commands.
+
+```
+git clone https://github.com/moguelor/archie-test-project.git
+cd archie-test-project
+yarn install
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> Note | The project is running on port `3000`.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Structure Folder
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.tsx`.
+For the folder organization, is used the metodology `structure by features`. I believe that is an easy way to manage the scalability of big projects. You can split one big application into the smallest ones `divide and conquer`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+|-- pages                   # Main code.
+    |-- home                # Home page.
+        |-- components      # Reusable components.
+        |-- Container.tsx   # Smart component for to do calls on the api.
+        |-- index.tsx       # Index point for the especific page.
+        |-- querys.ts       # Graphql queries.
+        |-- types.ts        # Typescript types.
+    |-- _app.js             # Application component.
+    |-- apolloConfig.ts     # Apollo configuration.
+    |-- index.tsx           # Application entry point.
+```
 
-## Learn More
+### Libraries
 
-To learn more about Next.js, take a look at the following resources:
+Here are the main libraries used in the project.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [react](https://es.reactjs.org/) - Modern web library to use in the UI.
+- [next + typescript](https://nextjs.org/) - The react framework for production and server side settings.
+- [chakra-ui](https://chakra-ui.com/) - Create accessible React apps with speed.
+- [apollo](https://www.apollographql.com/docs/react/) - Client for react to connect graphql.
+- [react-spring](https://react-spring.io/) - Spring-physics based animation library.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+#### Deploy
 
-## Deploy on Vercel
+- [gh-pages](https://github.com/tschaub/gh-pages) - Publish files to a gh-pages branch on GitHub.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Required features.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [DONE] Should a be NextJs project, using create-next-app is totally perfect
+- [DONE] Should use typescript
+
+## Extra points.
+
+- [DONE] Preferably use chakra ui for styled components.
+- [DONE] Add a search bar that can filter through missions and only display the ones that match the current search entry.
+- [DONE] Use one of the server-side functions NextJS provides to fetch data, if not explain why not.
+- [DONE] Use apollo graphql to establish connection to endpoint
+- [DONE] Make it mobile responsive.
+
+## BONUS
+
+- Added animations with the library `react-spring`.
+- Used github boards to manage the task. You can see them [HERE](https://github.com/moguelor/archie-test-project/projects/1);
+
+### [TODO]
+
+- Add unit testings with [Jest](https://jestjs.io/)
+- Generate a library component with [Storybook](https://storybook.js.org/) for reusable components.
+- Add mobile gestures with [Hammer](https://hammerjs.github.io/)
