@@ -23,18 +23,18 @@ yarn dev
 
 ### Structure Folder
 
-For the folder organization, is used the metodology `structure by features`. I believe that is an easy way to manage the scalability of big projects. You can split one big application into the smallest ones `divide and conquer`.
-
 ```
+|-- packages                   # Different entities. 
+    |-- configs                # Configurations.
+        |-- apolloConfig.ts    # Apollo configuration.
+    |-- shared                 # Reusable code.
+        |-- components         # Reusable components. 
+        |-- hocs               # Reusable high order functions.
+        |-- hooks              # Reusable hooks.
+        |-- querys.ts          # Graphql queries.
+        |-- types.ts           # Typescript types.
 |-- pages                   # Main code.
-    |-- home                # Home page.
-        |-- components      # Reusable components.
-        |-- Container.tsx   # Smart component for to do calls on the api.
-        |-- index.tsx       # Index point for the especific page.
-        |-- querys.ts       # Graphql queries.
-        |-- types.ts        # Typescript types.
     |-- _app.js             # Application component.
-    |-- apolloConfig.ts     # Apollo configuration.
     |-- index.tsx           # Application entry point.
 ```
 
