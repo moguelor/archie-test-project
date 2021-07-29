@@ -54,16 +54,16 @@ Here are the main libraries used in the project.
 
 ### Required features.
 
-- [DONE] Should a be NextJs project, using create-next-app is totally perfect
-- [DONE] Should use typescript
+- [x] Should a be NextJs project, using create-next-app is totally perfect
+- [x] Should use typescript
 
 ## Extra points.
 
-- [DONE] Preferably use chakra ui for styled components.
-- [DONE] Add a search bar that can filter through missions and only display the ones that match the current search entry.
-- [DONE] Use one of the server-side functions NextJS provides to fetch data, if not explain why not.
-- [DONE] Use apollo graphql to establish connection to endpoint
-- [DONE] Make it mobile responsive.
+- [x] Preferably use chakra ui for styled components.
+- [x] Add a search bar that can filter through missions and only display the ones that match the current search entry.
+- [x] Use one of the server-side functions NextJS provides to fetch data, if not explain why not.
+- [x] Use apollo graphql to establish connection to endpoint
+- [x] Make it mobile responsive.
 
 ## BONUS
 
