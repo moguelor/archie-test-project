@@ -54,6 +54,10 @@ Here are the main libraries used in the project.
 
 - [vercel](https://vercel.com/) - vercel combines the best developer experience with an obsessive focus on end-user performance.
 
+### Graphql API
+
+- [SpaceX](https://api.spacex.land/graphql/)
+
 ### Required features.
 
 - [x] Should a be NextJs project, using create-next-app is totally perfect
